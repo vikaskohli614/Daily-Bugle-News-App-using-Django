@@ -2,7 +2,7 @@ from django.shortcuts import render
 import requests
 # Your API key is: cd43a137c659423f961a90a3e8ead57f
 # Create your views here.
-API_KEY='cd43a137c659423f961a90a3e8ead57f'
+#API_KEY='cd43a137c659423f961a90a3e8ead57f'
 def home(request):
     country= request.GET.get('country')
     category= request.GET.get('category')
