@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="row py-4">
+    <div class="container col-lg-3">
+        <h3 class=" card-text px-5 py-5">Search By country</h3>
+        <form class="row g-3 px-5" method="get" action="">
+            <div class="col-auto">
+                <label for="inputPassword" class="visually-hidden">Country</label>
+                <input type="text" name="country" class="form-control" id="inputPassword2" placeholder="country">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="container col-lg-3">
+        <h3 class=" card-text px-5 py-5">Search By Category</h3>
+        <form class="row g-3 px-5" method="get" action="">
+            <div class="col-auto">
+                <label for="inputPassword" class="visually-hidden">Category</label>
+                <input type="text" name="category" class="form-control" id="inputPassword2" placeholder="Category">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="container col-lg-3">
+        <h3 class=" card-text px-5 py-5">Search By Language</h3>
+        <form class="row g-3 px-5" method="get" action="">
+            <div class="col-auto">
+                <label for="inputPassword" class="visually-hidden">Language</label>
+                <input type="text" name="language" class="form-control" id="inputPassword2" placeholder="Language">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for news in articles %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="{{news.urlToImage}}" class="img-thumbnail" alt="...">
+                    <div class="card-body">
+                        <h6>{{news.author}}</h6>
+                        <p class="card-text">{{news.title}}</p>
+                        <h5 class="card-title">Source:-{{news.source.name}}</h5>
+                        <p class="card-text"><b>Description:-</b>{{news.description}}</p>
+                        <p class="card-text"><b>Content:-</b>{{news.content}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{{news.url}}" target="_blank" class="btn btn-success">See full News</a>
+                            </div>
+                            <small class="text-muted">Date:-{{news.publishedAt}}</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+            {% endblock body %}
